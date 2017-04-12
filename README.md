@@ -1,4 +1,4 @@
-#Utilização prático do tema M(etropolis):
+# Utilização prático do tema M(etropolis):
 
 https://github.com/matze/mtheme
 
