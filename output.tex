@@ -1,0 +1,154 @@
+\RequirePackage{silence}
+\WarningFilter{biblatex}{Patching footnotes failed}
+\documentclass[10pt, compress,british,xcolor={svgnames,dvipsnames,x11names},trans]{beamer}
+
+\usepackage{babel}
+\usepackage{csquotes}
+\usepackage{comment}
+\usepackage{tikzsymbols}
+
+%%% mtheme customisations
+\usetheme[progressbar=frametitle,block=fill]{m}
+\setmonofont[Scale=0.92]{Fira Mono}
+\AtBeginSubsection{
+\metroset{color/background=dark}
+\frame[plain,c]{
+  \begin{center}
+  \begin{minipage}{25em}
+    \usebeamercolor[fg]{section title}
+    \usebeamerfont{section title}
+    \insertsubsection\\[-1ex]
+    \usebeamertemplate*{progress bar in section page}
+  \end{minipage}
+  \end{center}
+}
+\metroset{color/background=light}
+}
+%%%%% end mtheme
+
+\setbeamertemplate{frametitle continuation}[from second]
+\setbeamertemplate{bibliography item}[book]
+
+\usepackage{xeCJK}
+%\setCJKsansfont[BoldFont=Kozuka Gothic Pro]{Kozuka Gothic Pro L}
+\setCJKsansfont{IPAGothic}
+% \newCJKfontfamily{\xiheifont}[BoldFont=STHeiti]{STXihei}
+\newCJKfontfamily{\xiheifont}{WenQuanYi Micro Hei}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{chains}
+\usepackage{tikz-qtree}
+\usepackage{multicol}
+
+
+\usepackage{expex}
+%\lingset{glhangindent=2em,glspace=1em,aboveexskip=0pt,belowexskip=0pt,aboveglftskip=-3pt,extraglskip=3pt} %v0.1
+%\lingset{exskip=0pt,interpartskip=-3pt,belowpreambleskip=-3pt,belowglpreambleskip=-3pt,aboveglftskip=-3pt,extraglskip=3pt,glhangstyle=none}
+\usepackage{relsize}
+\usepackage{booktabs,tabularx}
+%\usepackage{textcomp}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,breaklines=true,breakatwhitespace=true,
+keywordstyle={\color{NavyBlue}\bfseries}, showstringspaces=false,
+commentstyle={\color{PaleVioletRed4}},
+emphstyle={\color{OliveGreen}\bfseries}
+}
+
+\usepackage{algorithmic}
+\renewcommand{\algorithmiccomment}[1]{\alert{/* #1 */}}
+
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta}
+
+\makeatletter
+\pgfarrowsdeclare{crow's foot}{crow's foot}
+{
+  \pgfarrowsleftextend{+-.5\pgflinewidth}%
+  \pgfarrowsrightextend{+.5\pgflinewidth}%
+}
+{
+  \pgfutil@tempdima=0.5pt%
+  \advance\pgfutil@tempdima by.25\pgflinewidth%
+  \pgfsetdash{}{+0pt}%
+  \pgfsetmiterjoin%
+  \pgfpathmoveto{\pgfqpoint{0pt}{-6\pgfutil@tempdima}}%
+  \pgfpathlineto{\pgfqpoint{-6\pgfutil@tempdima}{0pt}}%
+  \pgfpathlineto{\pgfqpoint{0pt}{6\pgfutil@tempdima}}%
+  \pgfusepathqstroke%
+}
+
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{british}{british-apa}
+\renewcommand{\finalnamedelim}{and}
+\renewcommand{\bibfont}{\small}
+\setlength{\bibhang}{1em}
+\setlength{\bibitemsep}{1ex}
+\bibliography{refs}
+\renewcommand{\UrlFont}{\ttfamily}
+
+\usepackage[os=win]{menukeys}
+
+
+\title{A Practical Introduction to Natural Language Processing}
+
+\subtitle{Intelligent Processing \& Applications\\Research Cluster Seminar}
+
+%\date{5 \& 12 March 2015}
+%\date{5 March 2015\\Session 1: Common Tasks and Concepts in NLP}
+%\date{12 March 2015\\Session 2: Software Libraries and Resources for NLP}
+\date{5 March 2015\\Session 1: Common Tasks and Concepts in NLP\\[0.5ex]
+12 March 2015\\Session 2: Software Libraries and Resources for NLP}
+\author{Dr Lim Lian Tze}
+\institute{
+Information Technology Department\\
+School of Science, Engineering and Technology\\
+KDU College Penang
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[label=LO]
+\frametitle{Learning Outcomes}
+
+At the end of the seminar, participants will be able to:
+
+\begin{itemize}
+\item Explain examples of NLP applications and related technical issues.
+\item Explain the layers of NLP and corresponding processing tasks.
+\item<alert@2> Use existing libraries to perform common NLP processing tasks.
+\item<alert@2> Use wordnet-based semantic networks to provide multilingual semantic information in NLP applications.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Contents}
+\setbeamertemplate{section in toc}[sections numbered]
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+
+\include{nlp-cl}
+\include{example-apps}
+\include{layers}
+\include{student-projects}
+\plain{End of Session 1\\See you next week!}
+\include{common-tasks}
+\include{wordnet}
+\plain{The End\\Thank you!}
+
+\appendix
+
+\begin{frame}[allowframebreaks]
+\frametitle{Bibliography}
+
+\alert{\footnotesize I am using the APA referencing/citation style in this presentation. \emph{You} should be using Harvard Cite-Them-Right style -- do not copy and paste from this list!}
+
+\nocite{*}
+\printbibliography[heading=none]
+
+\end{frame}
+
+\end{document}
