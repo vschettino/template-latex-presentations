@@ -38,7 +38,7 @@
 \usetikzlibrary{chains}
 \usepackage{tikz-qtree}
 \usepackage{multicol}
-
+\usepackage{subcaption}
 
 \usepackage{expex}
 %\lingset{glhangindent=2em,glspace=1em,aboveexskip=0pt,belowexskip=0pt,aboveglftskip=-3pt,extraglskip=3pt} %v0.1
@@ -100,11 +100,27 @@ emphstyle={\color{OliveGreen}\bfseries}
 Departamento de Ciência da Computação\\
 Instituto de Ciências Exatas (ICE)\\
 Universidade Federal de Juiz de Fora
+\begin{figure}
+\centering
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{graphics/logo_ufjf.png}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{graphics/logo_dcc.png}
+  \label{fig:sub2}
+\end{subfigure}
+\label{fig:test}
+\end{figure}
+
 }
 
 \begin{document}
-
 \maketitle
+
+
 
 \begin{frame}[label=LO]
 \frametitle{Learning Outcomes}
