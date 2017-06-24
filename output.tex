@@ -6,6 +6,7 @@
 \usepackage{csquotes}
 \usepackage{comment}
 \usepackage{tikzsymbols}
+\usepackage[alf,bibjustif]{abntex2cite}
 
 %%% mtheme customisations
 \usetheme[progressbar=frametitle,block=fill]{m}
@@ -77,14 +78,6 @@ emphstyle={\color{OliveGreen}\bfseries}
   \pgfusepathqstroke%
 }
 
-\usepackage[backend=biber,style=apa]{biblatex}
-\DeclareLanguageMapping{british}{british-apa}
-\renewcommand{\finalnamedelim}{and}
-\renewcommand{\bibfont}{\small}
-\setlength{\bibhang}{1em}
-\setlength{\bibitemsep}{1ex}
-\bibliography{refs}
-\renewcommand{\UrlFont}{\ttfamily}
 
 \usepackage[os=win]{menukeys}
 
@@ -130,7 +123,7 @@ At the end of the seminar, participants will be able to:
 \begin{itemize}
 \item Explain examples of NLP applications and related technical issues.
 \item Explain the layers of NLP and corresponding processing tasks.
-\item<alert@2> Use existing libraries to perform common NLP processing tasks.
+\item<alert@2> Use existing libraries to perform common NLP processing tasks. \cite{Fowler1999}
 \item<alert@2> Use wordnet-based semantic networks to provide multilingual semantic information in NLP applications.
 \end{itemize}
 \end{frame}
@@ -158,8 +151,8 @@ At the end of the seminar, participants will be able to:
 
 \alert{\footnotesize I am using the APA referencing/citation style in this presentation. \emph{You} should be using Harvard Cite-Them-Right style -- do not copy and paste from this list!}
 
-\nocite{*}
-\printbibliography[heading=none]
+\bibliography{referencias}
+\bibliographystyle{abntex2-alf}
 
 \end{frame}
 
